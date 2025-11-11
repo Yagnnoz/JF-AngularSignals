@@ -1,0 +1,22 @@
+.navbar-container {
+  padding: 1em;
+  background: #FFF;
+  box-shadow: -1px 1px 5px 5px rgba(0,0,0,0.17);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
