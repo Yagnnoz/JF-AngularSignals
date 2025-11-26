@@ -1,0 +1,3 @@
+@for (movie of moviesSorted(); track movie.episode_id) {
+  <app-movie [movieData]="movie" (delete)="removeMovieFromList($event)"></app-movie>
+}
