@@ -1,0 +1,9 @@
+<div class="flex-column">
+  <span>Name: {{ characterData().name }}</span>
+  <span>Born: {{ characterData().birth_year }}</span>
+  <span>Species:
+    @for (species of characterData().species; track $index) {
+      {{ species }}
+    }
+  </span>
+</div>

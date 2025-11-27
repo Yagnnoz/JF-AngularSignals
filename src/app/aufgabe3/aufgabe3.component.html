@@ -7,3 +7,11 @@
 
 <!--Suchmaske-->
 <!--Detailansicht-->
+
+<app-character-search [(term)]="searchTerm"></app-character-search>
+
+@if (character.hasValue()) {
+  @for (character of character.value(); track $index) {
+    <app-character-detail [characterData]="character"></app-character-detail>
+  }
+}
