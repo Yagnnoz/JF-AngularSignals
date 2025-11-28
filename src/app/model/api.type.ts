@@ -1,7 +1,4 @@
 export type Wrapper<T> = {
-  count: number;
-  next?: string;
-  previous?: string;
   results: T[];
 };
 
