@@ -1,3 +1,12 @@
 @for (movie of moviesSorted(); track movie.episode_id) {
   <app-movie [movieData]="movie" (delete)="removeMovieFromList($event)"></app-movie>
 }
+
+<hr>
+
+<!--Option 2-->
+@if(movieResource.hasValue()) {
+  @for(movie of movieResource.value(); track $index) {
+    <app-movie [movieData]="movie"></app-movie>
+  }
+}

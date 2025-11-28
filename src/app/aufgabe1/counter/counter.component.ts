@@ -19,6 +19,10 @@ export class CounterComponent {
     this.count.update(num => num - 1);
   }
 
+  reset(): void {
+    this.count.set(0);
+  }
+
   logCountEffect = effect(() => {
     console.log(this.count());
   });

@@ -17,7 +17,9 @@ export class MovieListComponent implements OnInit {
   movieList = this.movieService.allMovies;
   moviesSorted = computed(() => {
     return this.movieList().sort((a, b) => a.episode_id - b.episode_id);
-  })
+  });
+
+  movieResource = this.movieService.movieList;
 
   ngOnInit() {
     this.movieService.loadMovies();

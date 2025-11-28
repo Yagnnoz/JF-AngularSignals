@@ -2,6 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { MovieResult } from '../model/api.type';
 import { StarWarsDataService } from '../star-wars-data.service';
 import { map, take } from 'rxjs';
+import { rxResource } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,12 @@ export class MoviesService {
 
   private movies = signal<MovieResult[]>([]);
   allMovies = this.movies.asReadonly();
+
+  movieList = rxResource({
+    stream: () => this.dataService.getAllMovies().pipe(
+      map(movies => movies.results),
+    ),
+  });
 
   private dataService = inject(StarWarsDataService);
 
