@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Character, Movie } from './model/api.type';
+import { CharacterResult, MovieResult, Wrapper } from './model/api.type';
 
 @Injectable({
   providedIn: 'root',
@@ -11,15 +11,15 @@ export class StarWarsDataService {
   private httpClient = inject(HttpClient);
   private api = 'https://swapi.dev/api/';
 
-  public getAllMovies(): Observable<Movie> {
-    return this.httpClient.get<Movie>(`${this.api}/films`);
+  public getAllMovies(): Observable<Wrapper<MovieResult>> {
+    return this.httpClient.get<Wrapper<MovieResult>>(`${this.api}/films`);
   }
 
-  public getAllCharacters(): Observable<Character> {
-    return this.httpClient.get<Character>(`${this.api}/people`);
+  public getAllCharacters(): Observable<Wrapper<CharacterResult>> {
+    return this.httpClient.get<Wrapper<CharacterResult>>(`${this.api}/people`);
   }
 
-  public searchCharacter(searchName: string): Observable<Character> {
-    return this.httpClient.get<Character>(`${this.api}/people/?search=${searchName}`);
+  public searchCharacter(searchName: string): Observable<Wrapper<CharacterResult>> {
+    return this.httpClient.get<Wrapper<CharacterResult>>(`${this.api}/people/?search=${searchName}`);
   }
 }
